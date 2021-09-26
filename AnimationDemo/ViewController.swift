@@ -26,8 +26,11 @@ class ViewController: UIViewController {
 
         } )
         
-        
+    
+
     }
+    
+    //MARK: - This is to add the first arrow
     
     func addloading1() {
         
@@ -76,6 +79,8 @@ class ViewController: UIViewController {
         }
 
     }
+    
+    //MARK: - This is to add the second arrow
     func addLoading2(){
         let shapeLayer = CAShapeLayer()
 
@@ -122,6 +127,7 @@ class ViewController: UIViewController {
 
     }
     
+    //MARK: - This part to create the filled circle.
     func addHiddenLayer() {
         let hiddenLayer = CAShapeLayer()
 
@@ -135,8 +141,8 @@ class ViewController: UIViewController {
         
         view.layer.addSublayer(hiddenLayer)
         
-        var start = CGPoint(x: (hiddenLayer.position.x) + 20, y: (hiddenLayer.position.y) - 20)
-        var end = CGPoint(x: (hiddenLayer.position.x) - 20, y: (hiddenLayer.position.y) + 20)
+        let start = CGPoint(x: (hiddenLayer.position.x) + 20, y: (hiddenLayer.position.y) - 20)
+        let end = CGPoint(x: (hiddenLayer.position.x) - 20, y: (hiddenLayer.position.y) + 20)
         
         let correct = UIBezierPath()
         correct.addCorrect(start: start, end: end, pointerLineLength: 15, arrowAngle: 45)
@@ -176,15 +182,12 @@ class ViewController: UIViewController {
 extension UIBezierPath {
     func addArrow(start: CGPoint, end: CGPoint, pointerLineLength: CGFloat, arrowAngle: CGFloat) {
         
-//        self.move(to: start)
-//        self.addLine(to: end)
+
         self.move(to: end)
     
 
         // MARK: - THIS PART calculates the top of the arrow
-        
-//        let startEndAngle = atan((end.y - start.y) / (end.x - start.x)) + ((end.x - start.x) < 0 ? CGFloat(Double.pi) : 0)
-        
+                
         var startEndAngle = 0
         
         if(end.x > start.x) {
